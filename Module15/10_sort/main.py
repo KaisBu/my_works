@@ -1,41 +1,16 @@
 initial_list = [1, 4, -3, 0, 10]
-min_num = initial_list[0]
-max_num = initial_list[0]
-index = 0
 
-for _ in range(len(initial_list)):
-    num = initial_list[index]
-    if num <= min_num:
-        initial_list.pop(index)
-        min_num = num
-        initial_list.insert(0, num)
-        index += 1
-    elif num >= max_num:
-        initial_list.pop(index)
-        max_num = num
-        initial_list.append(num)
-    elif min_num < num < max_num and num <= initial_list[index - 1]:
-        initial_list.pop(index)
-        for number in initial_list:
-            if number >= num:
-                number_index = initial_list.index(number)
-                initial_list.insert(number_index, num)
-                index += 1
-                break
-    else:
-        initial_list.pop(index)
-        reversed_index = 0
-        for number in reversed(initial_list):
-            if number <= num:
-                initial_list.insert(- 1 - reversed_index, num)
-                break
-            reversed_index += 1
+print('\nInitial list:', initial_list)
 
-print(initial_list)
+for i in range(len(initial_list)):
+    min_num = initial_list[i]
+    for ind in range(i, len(initial_list)):
+        if initial_list[ind] < min_num:
+            min_num = initial_list[ind]
+    index = initial_list.index(min_num)
+    initial_list.pop(index)
+    initial_list.insert(i, min_num)
 
+print('Sorted list:', initial_list)
 
-# TODO Идём циклом по строке/массиву начиная с 0-го индекса. Находим минимальный элемент.
-#  Если этот элемент находится на 7м, например, индексе, то свапаем его с нулевым. Таким образом мы минимальный объект
-#  переместили на первую позицию. Затем начинаем отсчет уже от 1-го индекса, делает также, ищем минимальный элемент.
-#  И так далее пока весь массив не переберём.
 
