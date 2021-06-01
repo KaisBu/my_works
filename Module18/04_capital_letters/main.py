@@ -1,1 +1,4 @@
-# TODO здесь писать код
+string = input('Enter the string: ').lower()
+print('Result:', string.title())
+
+
