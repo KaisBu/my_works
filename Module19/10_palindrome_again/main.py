@@ -1,9 +1,17 @@
 string = input('Enter the string: ')
+letters = dict()
+count = 0
 
-sym_set = set(list(string))
+for sym in string:
+    letters[sym] = letters.get(sym, 0) + 1
 
-if (len(string) == (2 * len(sym_set) - 1)) or (len(string) == 2 * len(sym_set)):
-    print('Can be made a palindrome')
+for value in letters.values():
+    if value % 2 == 1:
+        count += 1
+
+if count <= 1:
+    print('Can be palindrome')
 else:
-    print("Can't be made a palindrome")
+    print('Can not be palindrome')
+
 
