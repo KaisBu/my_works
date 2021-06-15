@@ -10,20 +10,21 @@ violator_songs = {
     'Clean': 5.83
 }
 
-num_songs = int(input('Enter number of songs: '))
 summ, i = 0, 0
 
-if num_songs < 0:
-    print('Number of songs must be positive.')
-elif num_songs > 9:
-    print('There are not so many songs.')
-else:
-    for key in violator_songs.keys():
-        if i == num_songs:
-            break
-        print('Name of {number} song:'.format(number=i+1), key)
-        summ += violator_songs[key]
-        i += 1
+while True:
+    num_songs = int(input('Enter number of songs: '))
 
-    print('Total playing time of songs:', round(summ, 2), 'minutes.')
+    if 0 <= num_songs <= 9:
+        for key in violator_songs.keys():
+            if i == num_songs:
+                break
+            print('Name of {number} song:'.format(number=i+1), key)
+            summ += violator_songs[key]
+            i += 1
+
+        print('\nTotal playing time of songs:', round(summ, 2), 'minutes.')
+        break
+    else:
+        print('Number of songs must be positive and less than {length}.'.format(length=len(violator_songs)))
 
