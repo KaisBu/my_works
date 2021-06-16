@@ -44,5 +44,36 @@ data = {
     ]
 }
 
+for key in data.keys():
+    if key == 'ETH':
+        print('\n{key}:'.format(key=key))
 
-# TODO здесь писать код
+        for keys in data[key]:
+            print('{key}: {value}'.format(key=keys, value=data.get(key).get(keys)))
+
+    elif key == 'tokens':
+        print('\n{key}:'.format(key=key))
+
+        for elem in data[key]:
+            for keys in elem.keys():
+                if keys == 'fst_token_info' or keys == 'sec_token_info':
+                    print('\n{key}:'.format(key=keys))
+                    for part in elem[keys].keys():
+                        print('{key}: {value}'.format(key=part,
+                                                      value=elem[keys].get(part)))
+                else:
+                    print('{key}: {value}'.format(key=keys,
+                                                  value=elem.get(keys)))
+
+    else:
+        print('\n{key}: {value}'.format(key=key, value=data.get(key)))
+
+data['ETH']['total_diff'] = 100
+data['tokens'][0]['fst_token_info']['name'] = 'doge'
+data['ETH']['total_out'] += data['tokens'][0]['total_out'] + \
+                            data['tokens'][1]['total_out']
+data['tokens'][0].pop('total_out')
+data['tokens'][1].pop('total_out')
+data['tokens'][1]['sec_token_info']['total_price'] = \
+    data['tokens'][1]['sec_token_info'].pop('price')
+

@@ -24,4 +24,14 @@ store = {
     ],
 }
 
-# TODO здесь писать код
+for key in goods.keys():
+    count, summ = 0, 0
+
+    for item in store[goods[key]]:
+        summ += item['price'] * item['quantity']
+        count += item['quantity']
+
+    print(key, '-', count, 'pc, price', summ, 'rub')
+
+
+
