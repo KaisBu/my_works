@@ -3,7 +3,7 @@ students = {
         'name': 'Bob',
         'surname': 'Vazovski',
         'age': 23,
-        'interests': ['biology, swimming']
+        'interests': ['biology', 'swimming']
     },
     2: {
         'name': 'Rob',
@@ -20,25 +20,32 @@ students = {
 }
 
 
-def f(dict):
-    lst = []
-    string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
+def function(student_dict):
+    length = 0
+    for dictionary in student_dict.values():
+        length += len(dictionary['surname'])
+
+    student_interest = [
+        interest
+        for dictionary in student_dict.values()
+        for interest in dictionary['interests']
+    ]
+
+    return student_interest, length
 
 
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
+if len(students) != 0:
+    for id_student, student in students.items():
+        print('{id} - {student_age}'.format(
+            id=id_student,
+            student_age=student['age']
+        ))
+
+    interest_list, total_length = function(students)
+    print('All students interests: ', interest_list)
+    print('Length of all student surnames: ', total_length)
+else:
+    print('Tne student dictionary is empty')
 
 
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
 
-# TODO исправить код
