@@ -2,14 +2,9 @@ def gen(col_1, col_2):
     col_1 = [sym for sym in col_1]
     col_2 = [sym for sym in col_2]
 
-    if len(col_1) > len(col_2):
-        num = len(col_2)
-    else:
-        num = len(col_1)
-
     generator = (
         (col_1[index], number)
-        for index, number in enumerate(col_2[:num])
+        for index, number in enumerate(col_2[:min(len(col_1), len(col_2))])
     )
     return generator
 
