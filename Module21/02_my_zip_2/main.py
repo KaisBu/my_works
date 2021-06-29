@@ -6,16 +6,14 @@ def gen(col_1, col_2):
     return generator
 
 
-def output_on_display(i):
-    if i == -1:
-        return -1
+def output_on_display(some_list):
+    print(some_list[0])
 
-    output_on_display(i - 1)
-    print(list(gen_1)[i])
-    return i + 1
+    if len(some_list) > 1:
+        output_on_display(some_list[1:])
 
 
-string = "abcd"
+string = 'abcd'
 nums_tuple = 10, 20, 30, 40
 
 print('String: {string}\nTuple of numbers: {tup}'.format(
@@ -24,4 +22,4 @@ print('String: {string}\nTuple of numbers: {tup}'.format(
 ))
 gen_1 = gen(string, nums_tuple)
 print('\nResult:', '\n{el}'.format(el=gen_1))
-output_on_display(len(list(gen_1)) - 1)
+output_on_display(list(gen_1))
