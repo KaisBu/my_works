@@ -1,7 +1,7 @@
 def series(num):
     if num == 0:
         return 0
-    if num == 1:
+    elif num == 1:
         return 1
     return series(num - 2) + series(num - 1)
 
