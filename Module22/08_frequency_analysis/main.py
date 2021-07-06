@@ -1,35 +1,52 @@
-import os
+import os, collections
 
 
 def read_file():
+    dictionary = {}
     text_path = os.path.abspath('text.txt')
     file = open(text_path, 'r')
 
     for string in file:
         for elem in string:
             if elem.isalpha():
-                if elem.lower() in letters_dict:
-                    letters_dict[elem.lower()] += 1
+                if elem.lower() in dictionary:
+                    dictionary[elem.lower()] += 1
                 else:
-                    letters_dict[elem.lower()] = 1
+                    dictionary[elem.lower()] = 1
 
     file.close()
+    return dictionary
 
 
 def sorting_func(dictionary):
     sum_value = sum(dictionary.values())
-    sort_keys, sort_values = [], []
+    sort_dict = collections.OrderedDict()
 
-    for key in sorted(dictionary, key=dictionary.get, reverse=True):
-        sort_keys.append(key)
-        sort_values.append(round(dictionary[key] / sum_value, 3))
+    for key, value in dictionary.items():
+        value = round(value / sum_value, 3)
+        if value in sort_dict:
+            sort_dict[value].append(key)
+        else:
+            sort_dict[value] = [key]
 
-    print(sort_keys, sort_values)
+    return sort_dict
 
 
+def analysis(dictionary):
+    analysis_path = os.path.abspath('analysis.txt')
+    analysis_file = open(analysis_path, 'a')
 
-letters_dict = {}
+    for key in sorted(dictionary.keys(), reverse=True):
+        for letter in sorted(dictionary[key]):
+            string = '{letter} {key}\n'.format(
+                letter=letter,
+                key=key
+            )
+            analysis_file.write(string)
 
-read_file()
-print(letters_dict)
-sorting_func(letters_dict)
+    analysis_file.close()
+
+
+letters_dict = read_file()
+letters_dict = sorting_func(letters_dict)
+analysis(letters_dict)
