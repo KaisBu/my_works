@@ -47,7 +47,7 @@ def main():
 
 
 def win_check():
-    win_combinations = ((1, 2, 3), (1, 4, 7), (7, 8, 9), (3, 6, 9), (1, 5, 9), (3, 5, 7))
+    win_combinations = ((1, 2, 3), (1, 4, 7), (7, 8, 9), (3, 6, 9), (1, 5, 9), (3, 5, 7), (2, 5, 8), (4, 5, 6))
 
     for i_tuple in win_combinations:
         if (i_tuple[0] in player_1.position_list and i_tuple[1] in player_1.position_list
