@@ -10,48 +10,31 @@ class Human:
         return 'Satiety: ' + str(self.satiety) + '\nLife: ' + str(self.life) + str(self.house)
 
     def eating(self):
-        if self.life:
-            if self.house.food >= 5:
-                self.house.food -= 5
-                self.satiety += 20
-                print('{} is eating'.format(self.name))
-            else:
-                print('Not enough food. {} going to the store'.format(self.name))
-                self.shopping()
+        if self.house.food >= 5:
+            self.house.food -= 5
+            self.satiety += 20
+            print('{} is eating'.format(self.name))
         else:
-            self.human_ded()
+            print('Not enough food. {} going to the store'.format(self.name))
+            self.shopping()
 
     def working(self):
-        if self.life:
-            self.house.funds += 20
-            self.satiety -= 10
-            print('{} is working'.format(self.name))
-            self.check_satiety()
-        else:
-            self.human_ded()
+        self.house.funds += 20
+        self.satiety -= 10
+        print('{} is working'.format(self.name))
 
     def playing(self):
-        if self.life:
-            self.satiety -= 10
-            print('{} is playing'.format(self.name))
-            self.check_satiety()
-        else:
-            self.human_ded()
+        self.satiety -= 10
+        print('{} is playing'.format(self.name))
 
     def shopping(self):
-        if self.life:
-            if self.house.funds >= 20:
-                self.house.food += 10
-                self.house.funds -= 20
-                print('{} goes to the grocery store'.format(self.name))
-            else:
-                print('Not enough funds. {} going to the work'.format(self.name))
-                self.working()
+        if self.house.funds >= 20:
+            self.house.food += 10
+            self.house.funds -= 20
+            print('{} goes to the grocery store'.format(self.name))
         else:
-            self.human_ded()
-
-    def human_ded(self):
-        print('{} cannot perform actions, he is ded'.format(self.name))
+            print('Not enough funds. {} going to the work'.format(self.name))
+            self.working()
 
     def check_satiety(self):
         if self.satiety <= 0:
@@ -59,6 +42,7 @@ class Human:
             print('{} died'.format(self.name))
 
     def action(self, number):
+        self.check_satiety()
         if not self.life:
             print('{} is ded. Game over!'.format(self.name))
             return True
@@ -78,7 +62,6 @@ class Human:
 
         print(self, '\n')
         return False
-
 
 
 class House:
