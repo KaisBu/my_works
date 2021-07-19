@@ -58,6 +58,28 @@ class Human:
             self.life = False
             print('{} died'.format(self.name))
 
+    def action(self, number):
+        if not self.life:
+            print('{} is ded. Game over!'.format(self.name))
+            return True
+
+        if self.satiety < 20:
+            self.eating()
+        elif self.house.food < 10:
+            self.shopping()
+        elif self.house.funds < 50:
+            self.working()
+        elif number == 1:
+            self.working()
+        elif number == 2:
+            self.eating()
+        else:
+            self.playing()
+
+        print(self, '\n')
+        return False
+
+
 
 class House:
 

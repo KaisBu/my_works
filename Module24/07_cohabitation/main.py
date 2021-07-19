@@ -4,28 +4,15 @@ import random
 
 def game():
     for i in range(365):
+        game_over = False
         number = random.randint(1, 6)
         print(f'\nDay {i + 1}\nNumber of the cube: {number}\n')
 
         for men in roommates:
-            if not men.life:
-                print('{} is ded. Game over!'.format(men.name))
-                break
+            game_over = men.action(men)
 
-            if men.satiety < 20:
-                men.eating()
-            elif men.house.food < 10:
-                men.shopping()
-            elif men.house.funds < 50:
-                men.working()
-            elif number == 1:
-                men.working()
-            elif number == 2:
-                men.eating()
-            else:
-                men.playing()
-
-            print(men, '\n')
+        if game_over:
+            break
 
 
 def roommates_list(number):
