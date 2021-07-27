@@ -23,7 +23,6 @@ class Employee(Person):
 
     def __init__(self, name, surname, age):
         super().__init__(name, surname, age)
-        self.__salary = 0
 
     def __str__(self):
         return super().__str__()
@@ -33,12 +32,10 @@ class Manager(Employee):
 
     def __init__(self, name, surname, age):
         super().__init__(name, surname, age)
+        self.__salary = 13000
 
     def get_salary(self):
         return self.__salary
-
-    def set_salary(self):
-        self.__salary = 13000
 
     def __str__(self):
         return '{}\nSalary: {}\n'.format(super().__str__(), self.__salary)
@@ -49,12 +46,10 @@ class Agent(Employee):
     def __init__(self, name, surname, age, volume_of_sales):
         super().__init__(name, surname, age)
         self.volume_of_sales = volume_of_sales
+        self.__salary = self.volume_of_sales * 0.05 + 5000
 
     def get_salary(self):
         return self.__salary
-
-    def set_salary(self):
-        self.__salary = self.volume_of_sales * 0.05 + 5000
 
     def __str__(self):
         return '{}\nSalary: {}\n'.format(super().__str__(), self.__salary)
@@ -65,12 +60,10 @@ class Worker(Employee):
     def __init__(self, name, surname, age, hours):
         super().__init__(name, surname, age)
         self.hours = hours
+        self.__salary = self.hours * 100
 
     def get_salary(self):
         return self.__salary
-
-    def set_salary(self):
-        self.__salary = self.hours * 100
 
     def __str__(self):
         return '{}\nSalary: {}\n'.format(super().__str__(), self.__salary)

@@ -3,13 +3,13 @@ from company import *
 
 def input_info(specialty):
     for i in range(3):
-        name = input('Enter name of {} {}: '.format(specialty, i + 1))
+        name = input('\nEnter name of {} {}: '.format(specialty, i + 1))
         surname = input('Enter surname of {} {}: '.format(specialty, i + 1))
 
         while True:
             try:
-                age = int(input('Enter surname of {} {}: '.format(specialty, i+1)))
-                if age <= 0:
+                age = int(input("Enter {}'s age: ".format(specialty)))
+                if 0 <= age <= 100:
                     raise ValueError
                 break
             except ValueError:
@@ -37,10 +37,21 @@ def input_info(specialty):
             employee_list.append(Worker(name, surname, age, hours))
 
 
+def sum_salary():
+    summ = 0
+
+    for i_employee in employee_list:
+        summ += i_employee.get_salary()
+
+    return summ
+
+
 employee_list = []
 input_info('manger')
 input_info('agent')
 input_info('worker')
+print('\nAmount of wages:', sum_salary())
+
 
 
 
