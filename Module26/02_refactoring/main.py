@@ -5,6 +5,7 @@ def my_gen(limit: int) -> tuple:
             yield x, y, result
 
             if result == limit:
+                print('Found!!!')
                 return
 
 
