@@ -1,4 +1,7 @@
-def q_gen(q: list, n: int) -> list:
+from _collections_abc import Iterable
+
+
+def q_gen(q: list, n: int) -> Iterable[list]:
     if q != [1, 1]:
         return
 
