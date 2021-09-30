@@ -41,3 +41,5 @@ print()
 square_gen = (count ** 2 for count in range(1, number + 1))
 for num in square_gen:
     print(num, end=' ')
+
+# зачтено

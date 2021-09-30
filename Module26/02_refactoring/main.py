@@ -15,3 +15,5 @@ to_find = 56
 
 for num1, num2, res in my_gen(to_find):
     print(num1, num2, res)
+
+# зачтено

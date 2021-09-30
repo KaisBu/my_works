@@ -3,7 +3,6 @@ import os
 
 
 def gen_fun(folder_path) -> Iterable[int]:
-
     for i_file in os.listdir(folder_path):
         new_path = os.path.join(folder_path, i_file)
 
@@ -19,8 +18,7 @@ def gen_fun(folder_path) -> Iterable[int]:
     return
 
 
-path = os.path.abspath(os.path.join(os.path.sep, 'Users', 'Кайс', 'PycharmProjects',
-                                    'python_basic'))
+path = r'C:\Users\1\Desktop\skillbox_students\Кайс Бу-Хасан\python_basic\Module14'
 string_count = 0
 
 for i in gen_fun(folder_path=path):
@@ -28,6 +26,4 @@ for i in gen_fun(folder_path=path):
 
 print(string_count)
 
-
-
-
+# зачтено

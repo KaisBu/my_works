@@ -10,4 +10,4 @@ print('Remove element number 2.')
 my_list.remove(1)
 print('New list:', my_list)
 
-
+# зачтено

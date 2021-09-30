@@ -65,10 +65,3 @@ class LinkedList:
                     last_knot.next_link = head_knot.next_link
                     self.length -= 1
                     return
-
-
-
-
-
-
-
