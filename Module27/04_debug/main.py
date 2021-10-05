@@ -3,6 +3,7 @@ import functools
 
 
 def debug(func: Callable) -> Callable:
+
     @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> None:
         if args and kwargs:
@@ -30,7 +31,7 @@ def debug(func: Callable) -> Callable:
         ))
 
         print(result)
-        # TODO: не забываем возвращать результат
+        return result
 
     return wrapped_func
 

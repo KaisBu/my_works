@@ -2,13 +2,13 @@ from typing import Callable, Any
 
 
 def count_dec(func: Callable) -> Callable:
-    count_dec.counter = 0
 
     def wrapped_func(*args, **kwargs) -> Any:
-        count_dec.counter += 1
-        print(count_dec.counter)
-        func(*args, **kwargs)  # TODO: не забываем возвращать результат
+        wrapped_func.counter += 1
+        print('Counter:', wrapped_func.counter)
+        return func(*args, **kwargs)
 
+    wrapped_func.counter = 0
     return wrapped_func
 
 

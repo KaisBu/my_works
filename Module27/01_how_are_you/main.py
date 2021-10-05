@@ -4,19 +4,21 @@ from typing import Callable
 def decorator(func: Callable) -> Callable:
     """Annoying decorator"""
 
-    def wrapped_func(*args, **kwargs) -> None:
+    def wrapped_func(*args, **kwargs) -> str:
         greeting = input('Hi! How are you? ')
         print('And mine is not very good! Okay, keep your function')
-        func(*args, **kwargs)  # TODO: не забываем возвращать результат
+        result = func(*args, **kwargs)
+        return result
 
     return wrapped_func
 
 
 @decorator
-def some_func() -> None:
-    print('<Something is happening here...>')
+def some_func() -> str:
+    result = '<Something is happening here...>'
+    return result
 
 
-some_func()
+print(some_func())
 
 # зачтено

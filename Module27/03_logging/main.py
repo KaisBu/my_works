@@ -14,7 +14,7 @@ def logging(func: Callable) -> Callable:
         print('Documentation: {docs}'.format(docs=func.__doc__))
 
         try:
-            func(*args, **kwargs)  # TODO: не забываем возвращать результат
+            return func(*args, **kwargs)
         except TypeError:
             with open(path, 'a') as file:
                 error = 'TypeError, time: {time}\n'.format(

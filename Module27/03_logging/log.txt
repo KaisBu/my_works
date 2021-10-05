@@ -14,3 +14,7 @@ TypeError, time: 2021/10/05 10:15:41
 FileNotFoundError, time: 2021/10/05 10:15:42
 ZeroDivisionError, time: 2021/10/05 10:15:42
 IndexError, time: 2021/10/05 10:15:43
+TypeError, time: 2021/10/05 11:37:24
+FileNotFoundError, time: 2021/10/05 11:37:24
+ZeroDivisionError, time: 2021/10/05 11:37:25
+IndexError, time: 2021/10/05 11:37:25
