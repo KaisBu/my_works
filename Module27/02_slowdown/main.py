@@ -7,7 +7,7 @@ def sleep_dec(func: Callable) -> Callable:
 
     def wrapped_func(*args, **kwargs) -> None:
         time.sleep(5)
-        func(*args, **kwargs)
+        func(*args, **kwargs)  # TODO: не забываем возвращать результат
 
     return wrapped_func
 
@@ -18,3 +18,5 @@ def some_func() -> None:
 
 
 some_func()
+
+# зачтено

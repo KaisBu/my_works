@@ -3,10 +3,11 @@ from typing import Callable
 
 def decorator(func: Callable) -> Callable:
     """Annoying decorator"""
+
     def wrapped_func(*args, **kwargs) -> None:
         greeting = input('Hi! How are you? ')
         print('And mine is not very good! Okay, keep your function')
-        func(*args, **kwargs)
+        func(*args, **kwargs)  # TODO: не забываем возвращать результат
 
     return wrapped_func
 
@@ -17,3 +18,5 @@ def some_func() -> None:
 
 
 some_func()
+
+# зачтено

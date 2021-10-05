@@ -6,7 +6,6 @@ import time
 
 
 def logging(func: Callable) -> Callable:
-
     @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> Any:
         time.sleep(0.5)
@@ -15,7 +14,7 @@ def logging(func: Callable) -> Callable:
         print('Documentation: {docs}'.format(docs=func.__doc__))
 
         try:
-            func(*args, **kwargs)
+            func(*args, **kwargs)  # TODO: не забываем возвращать результат
         except TypeError:
             with open(path, 'a') as file:
                 error = 'TypeError, time: {time}\n'.format(

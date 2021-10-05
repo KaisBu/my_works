@@ -7,7 +7,7 @@ def count_dec(func: Callable) -> Callable:
     def wrapped_func(*args, **kwargs) -> Any:
         count_dec.counter += 1
         print(count_dec.counter)
-        func(*args, **kwargs)
+        func(*args, **kwargs)  # TODO: не забываем возвращать результат
 
     return wrapped_func
 
@@ -19,5 +19,3 @@ def some_func() -> None:
 
 for _ in range(3):
     some_func()
-
-
