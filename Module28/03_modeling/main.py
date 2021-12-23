@@ -79,7 +79,7 @@ class Cube(Square):
 
 class Pyramid(Triangle):
     """
-    Класс Пирамида: родительские классы Triangle
+    Класс Пирамида: родительский класс Triangle
     """
     def __init__(self, base: int, height: int) -> None:
         super().__init__(base, height)
